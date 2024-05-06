@@ -1,0 +1,151 @@
+<html>
+<head>
+	<title>Lab 4</title>
+	<link href="lab4-style.css" type="text/css" rel="stylesheet">
+</head>
+<body>
+	<div class="grid-container">
+		
+		<div class="left navigation">
+			<img id="logo" src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/uvic-logo.jpg"/>
+			<a href="#part1">Part I</a>
+			<a href="#part2">Part II</a>
+			<a href="#part3">Part III</a>
+			<a href="#part4">Part IV</a>
+		</div>
+	
+		<div class="main">
+			<h2 id="part1">Part I: Setting up the grid</h2>
+			<ol>
+				<li>In <code>lab4-style.css</code>, select the class with 
+					name <code>grid-container</code> and create a grid layout
+					according to the image below:</li>
+					<img src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/grid-layout.png" width="60%" />
+				<li>Write CSS so that the class named <code>main</code>, which includes
+					these instructions, go in the middle column.</li>
+				<li>Next, place the navigation bar in the left column, and
+					the class named <code>right</code> in the right column</li>
+				<li>Write a css rule so that the classes named <code>left</code>
+					and <code>right</code> both have a background-color 
+					of <code>#470809</code></li>
+				<li>The navigation bar class is currently displayed using a 
+					flexbox where the contents are spread across a single row.
+					Update the flexbox configuration so that the contents
+					inside the flexbox span down a column instead of across a row.</li>
+				<li>Save your <code>lab4-style.css</code> file, and refresh 
+					the <code>lab4.html</code> page in your browser. The page 
+					should now look like the image below:</li>
+					<img src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/part1-complete.png" width="60%" />
+			</ol>
+			
+			<h1>CHECK POINT 1</h1>
+
+			<h2 id="part2">Part II: Fixing the Grid</h2>
+			<ol>
+				<li>At this point, you have likely noticed that these instructions
+				go below where the grid box ends. That is because the grid box is 
+				defined to only span 100% of the height and width of your browser.
+				There are two ways to fix this: (1) Set it so that column and/or 
+				row sizes sum to beyond 100%. (2) Set it so that specific elements 
+				in the grid box have a scroll bar if their contents exceed their 
+				allocated grid lines. We will implement te second option for this lab.
+				In the rule-set for the class with name <code>main</code> there should
+				currently be rules to place the <code>main</code> class in the center
+				column of the grid. Add the following rules to the declaration block:
+				<ul>
+					<code>max-height:100%;</code><br>
+					<code>overflow-y: auto;</code>
+				</ul>
+				The <code>max-height</code> allows us to set a max-height for the
+				selected element. In ths case, we are saying the content in the
+				<code>main</code> class cannot exceed <code>100%</code> of the height
+				we have specified for it in the grid. The <code>overflow-y</code>
+				allows us to specify what happens if it overflows the maximum height, 
+				the <code>default</code> makes it so that a scroll bar appears. If
+				you save and refresh the page, the navigation bar on the left should
+				stay positioned in the center of the browser, but you should be able
+				to scroll up and down the lab instructions in the <code>main</code>
+				part of the page (or click the links on the navigation bar).</li>
+			<li>Make a few more touch-ups to the <code>main</code> class.
+				<ol>
+					<li>Give the <code>main</code> class a background color
+					(I went with a light grey, which you will see below)</li>
+					<li>Add 20px of padding</li>
+					<li>Add a border to the left and right side of the <code>main</code> class</li>
+				</ol>
+				<li>The image below shows my page after adding some side borders
+				and a background color to the <code>main</code> class: </li>
+				<img src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/part2-complete.png" width="60%" />
+			</ol>
+			
+			<h1>CHECK POINT 2</h1>
+			
+			<h2 id="part3">Part III: Uploading to UVic Servers</h2>
+			<ol>
+				<li>If you are using a lab machine click the Windows icon 
+				on the bottom-left-corner of the screen, and then type in 
+				WinSCP to open up the WinSCP program. WinSCP is a program 
+				that allows you to connect to a web server from your computer 
+				and transfer files between your device and the server.<br> 
+				If you are not working on a lab machine, and are using a Windows 
+				computer, you can download WinSCP for free here: 
+				<a href="https://winscp.net/eng/download.php">https://winscp.net/eng/download.php</a><br>
+				There are other alternatives if you would prefer to use a different program. 
+				The following two also work for non-Windows users: 
+				<ul>
+					<li>CyberDuck (<a href="https://cyberduck.io/download/">https://cyberduck.io/download/</a>) and</li>
+					<li>FileZilla (<a href="https://filezilla-project.org/download.php?show_all=1">https://filezilla-project.org/download.php?show_all=1</a>) 
+				</ul></li>
+				<li>Once you have one of the programs from Step 1 running, 
+				the next step is to connect to a web server. UVic provides free 
+				web hosting, and so we will send out files to the UVic servers. 
+				There are many other hosts out there, and you are free to use other 
+				web servers outside of UVic was well. The following steps will 
+				lead you through how to connect to the UVic web servers:
+				<ol>
+					<li>Make sure the protocol you have selected is SFTP (SSH File Transfer Protocol)</li>
+					<li>There should be a box where you can enter a server or host name. 
+					In that box, fill in the following: <code>sftp.csc.uvic.ca</code></li>
+					<li>Next, enter your user name and password <u>(this should be the 
+					same username and password you use to login to BrightSpace or the lab computers)</u></li>
+					<li>Click <code>Login</code> (or <code>Connect</code>, or something similar!)</li>
+				</ol><br>
+				<b>WinSCP setup image:</b><br>
+				<img class="setup" src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/winscp-setup.png" width="60%" /><br><br>
+				<b>Cyberduck setup image:</b><br>
+				<img class="setup" src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/cyberduck-setup.png" width="60%" /><br><br>
+				<li>If the login was successful, you should see a screen similar to 
+				what is shown below. The window is split into two parts: the left half 
+				is the files on your machine, and the right half is files on the web server.
+				In Cyberduck, only the files on the web server are shown (which right now is 
+				just a folder called <code>public_html</code>)<br>
+				You can drag files from one window to another, and WinSCP (and other similar 
+				programs) will copy the file from the source to the destination. 
+				For example, if I drag <code>lab4.html</code> from my computer’s lab4 folder on the left, 
+				into the <code>public_html</code> folder on the web server on the right, the file will 
+				be copied onto the web server (<b>NOTE:</b> You must drag the file into the 
+				<code>public_html</code> folder on the web server)</li>
+				<img class="setup" src="https://webhome.csc.uvic.ca/~aestey/csc130/labs/lab4/images/upload-setup.png" width="60%" /><br><br>
+			</ol>
+					
+			<h2 id="part4">Part IV: View your page online!</h2>
+			<ol>
+				<li>Go to <code>https://webhome.csc.uvic.ca/~userID/lab4.html</code> where userID 
+				is replaced your login name (the one you use to login to BrightSpace and the lab 
+				computers. For example, my webpage would be <code>http://webhome.csc.uvic.ca/~hmansoor/lab4.html</code></li>
+				<li>Try viewing the page on your mobile phone. Depending on the resolution, the layout of the 
+				page may be different that when viewing it at full-screen on a computer monitor.</li>
+			</ol>
+			
+			<h1>CHECK POINT 3 (lab complete)</h2>
+
+		</div>
+
+		<div class="right">
+		</div>
+	</div>
+</body>
+</html>
+
+
+

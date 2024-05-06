@@ -1,0 +1,91 @@
+body {
+	background-color:RGBA(10, 10, 10, 1);
+}
+.grid-layout {
+	width: 1000px;
+	height : 700px;
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content:flex-start;
+		padding: auto;
+	margin-left: auto;
+	margin-right:auto;
+	
+}
+.skill-layout {
+	width: 100%;
+	height : 40%;
+	display: flex;
+	flex-flow: column;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content:space-between;
+	
+}
+
+.name-sec {
+	width:20%;
+	height:30%;
+	background-color: coral;
+}
+.skill {
+	width:80%;
+	height:50%;
+	background-color: white;
+}
+.about-me {
+	background-color: RGBA(50, 50, 50, 1);
+	width:20%;
+	height:70%;
+}
+.skills {
+	background-color: RGBA(220, 220, 220, 1);
+	width:80%;
+	height:30%;
+}
+.prp {	
+
+}
+h2, h1 {
+	margin-left:auto;
+	margin-right:auto;
+	text-align: center;
+}
+h1 {
+	font-size: 20px;
+}
+img {
+	display:block;
+	margin-left: auto;
+	margin-top: 20px;
+	margin-right: auto;
+	border-radius:30%;
+	width: 50%;
+	height: 50%;
+}
+.separator {
+	border-top:solid;
+	border-top-width: 3px;
+	border-top-color: RBG(60, 60, 60);
+}
+.about-me p {
+	font-size: 12px;
+	margin: auto;
+	padding: 8px;
+	color: white;
+}
+.end {
+	background-color: RGBA(100, 100, 100, 1);
+	width:80%;
+	height:20%;
+
+}
+p {
+	color: white;
+}
+
+h2 {
+	color: coral;
+}

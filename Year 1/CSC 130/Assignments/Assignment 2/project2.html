@@ -1,0 +1,121 @@
+<html>
+<head>
+	<title> Homepage </title>
+	<meta charset="UTF8"></meta>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="proj2script.js" type="text/javascript" defer></script>
+	<link href="proj2css.css" type="text/css" rel="stylesheet">
+</head>
+<body onload="onPageLoad()">
+	<div id="content">
+		<div id="pod-container">
+			<div id="profile"class="pod">
+				<h1>Profile</h1>
+				<p>Access you profile details</p> 
+				<p>through this tool. This will</p>
+				<p>provide some recommendations</p>
+				<p>based on your profile. This will</p>
+				<p>also show some facts about your </p>
+				<p>profile.</p>
+				<div class="focus-box"></div>
+				<button onclick="transitionProfile(name)" id="profile-but" class="button-design log-in-class bottom-margin" name="profile">Profile</button>
+				<div class="sign-in-class bottom-margin">
+					<p>It seems as if you aren't signed in yet. To better access our content, you should sign in.</p>
+					<button onclick="signIn()" class="button-design">Sign In</button>
+				</div>
+			</div>
+			<div id="input-rec"class="pod">
+				<h1>Input Rec</h1>
+				<p>Through your input, this will</p> 
+				<p>grab recommendations based off</p>
+				<p>that search. It provides a place</p>
+				<p>to listen and reveals other</p>
+				<p>information about that song and</p>
+				<p>artist that is relavent.</p>
+				<div class="focus-box"></div>
+				<button onclick="transitionInputRec(name)" id="input-rec-but" class="button-design log-in-class bottom-margin" name="input-rec">Input Rec</button>
+				<div class="sign-in-class bottom-margin">
+					<p>It seems as if you aren't signed in yet. To better access our content, you should sign in.</p>
+					<button onclick="signIn()" class="button-design">Sign In</button>
+				</div>
+			</div>
+			<div id="input-info"class="pod">
+				<h1>Input Info</h1>
+				<p>Through your input, this will</p> 
+				<p>grab the information of the song</p>
+				<p>and/or artist that is relavent</p>
+				<p>based off of your input.</p>
+				<div class="focus-box"></div>
+				<button onclick="transitionInputInfo(name)" id="input-info-but" class="button-design log-in-class bottom-margin" name="input-info">Input Info</button>
+				<div class="sign-in-class bottom-margin">
+					<p>It seems as if you aren't signed in yet. To better access our content, you should sign in.</p>
+					<button onclick="signIn()" class="button-design">Sign In</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="profile-ui ui">
+		<div class="top-menu-bar">
+			<p id ="first-find-prof" class="hover-effect" name="top-artists-prof">Top Artists This Month</p>
+			<p class="hover-effect" name="top-tracks-prof">Top Tracks This Month</p>
+			<p class="hover-effect" name="rec-artists-prof">Recommended Artists</p>
+			<p class="hover-effect" name="rec-tracks-prof">Recommended Tracks</p>
+			<button onclick="handleTransitionOut(name)"id="profile-back-but" class="button-design back-but" name="profile">Back</button>
+		</div>
+		<div class="profile-container">
+			<div id="top-artists-prof" class="containers"></div>
+			<div id="top-tracks-prof" class="containers"></div>
+			<div id="rec-artists-prof" class="containers"></div>
+			<div id="rec-tracks-prof" class="containers"></div>
+		</div>
+	</div>
+	<div class="input-rec-ui ui">
+		<div class="top-menu-bar">
+			<form class="label-design">
+				<label for="input-rec-track">Input Song:</label><br>
+				<input required type="text" id="input-rec-track" name="input-rec-track"><br>
+			</form>
+			<form class="label-design">
+				<label for="input-rec-artist">Input Artist:</label><br>
+				<input required type="text" id="input-rec-artist" name="input-rec-artist">
+			  </form>
+			<button onclick="handleSearchQuery(name)"id="input-rec-search" class="button-design back-but" name="input-rec">Search</button>
+			<button onclick="handleTransitionOut(name)"id="input-rec-back-but" class="button-design back-but" name="input-rec">Back</button>
+		</div>
+		<div class="top-menu-bar">
+			<p id ="first-find-rec" class="hover-effect" name="input-rec-artists">Recommended Artists</p>
+			<p class="hover-effect" name="input-rec-tracks">Recommended Tracks</p>
+		</div>
+		<div class="input-rec-container">
+			<div id="input-rec-artists" class="containers"></div>
+			<div id="input-rec-tracks" class="containers"></div>
+		</div>
+	</div>
+	<div class="input-info-ui ui">
+		<div class="top-menu-bar">
+			<form class="label-design">
+				<label for="input-info-track">Input Song:</label><br>
+				<input type="text" id="input-info-track" name="input-info-track" placeholder="Ex. Waterfall"><br>
+			</form>
+			<form class="label-design">
+				<label for="input-info-artist">Input Artist:</label><br>
+				<input type="text" id="input-info-artist" name="input-info-artist" placeholder="Ex. Morningsiders">
+			  </form>
+			<button onclick="handleInfoSearch(name)"id="input-info-search" class="button-design back-but" name="input-info">Search</button>
+			<button onclick="handleTransitionOut(name)"id="input-info-back-but" class="button-design back-but" name="input-info">Back</button>
+		</div>
+		<div class="storage">
+			<div class="input-info-track"><img id="input-info-img"src="https://i.scdn.co/image/ab67616d0000b273d5f039287857de2cb21cd7ee" alt="image to be loaded" class="track-image"><p id="input-info-name">Waterfall</p><p id="input-info-art">Morningsiders</p></div>
+			<div id="text-info">
+				<p id='album-name'>Album Name: I've got a song</p>
+				<p id='artists'>Artist: Morningsiders</p>
+				<p id='duration-ms'>Duration ms: 212706</p>
+				<p id='track-id'>Track ID: 4z3NrWP94ySfz0W3dDmQs7</p>
+				<p id='name'>Track Name: Waterfall</p>
+				<p id='popularity'>Popularity: 53</p>
+			</div>
+		</div>
+	</div>
+	<div id="json-storage">Test Delay</div>
+</body>
+</html>

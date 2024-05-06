@@ -1,0 +1,60 @@
+p, h3 {
+	margin-left: 20px;
+}
+
+.container {
+	list-style: none;
+	padding: 0;
+	background-color: darkcyan;
+	
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+}
+
+a {
+	color: DarkGreen;
+}
+a:hover {
+	color: red;
+}
+
+.container > a {
+	text-decoration: none;
+	padding: 15px;
+	color: white;
+}
+
+div > a:hover {
+	color: cadetblue;
+}
+#contact a {
+	color:red;
+}
+
+@media all and (max-width: 800px) {
+.container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+}
+@media all and (max-width: 600px) {
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+.container a {
+	border: solid;
+	border-width: 2px;
+	border-color:RGBA(200,255,255,0.25);
+	text-align: center;
+}
+h3 {
+	text-align: center;
+}
+}

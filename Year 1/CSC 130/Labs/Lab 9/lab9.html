@@ -1,0 +1,41 @@
+<html>
+<head>
+	<meta charset="UTF8"></meta>
+	<script src="lab9.js" defer></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="lab9.css" type="text/css" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="input">
+<div class="title">Enter movie information below:</div>
+	<div class="container">
+		<div class="item">Title:<input type="text" id="movieTitle"></div>
+		<div class="item">Year:<input type="text" id="movieYear"></div>
+		<div class="item"><button onclick="submit()">Submit</button></div>
+	</div>
+</div>
+
+<br><br>
+
+<div id="output">
+<div class="title">Results:</div>
+	<table>
+		<tr><td>Title:</td><td id="resultTitle"></td></tr>
+		<tr><td>Genre:</td><td id="resultGenre"></td></tr>
+		<tr><td>Directed By:</td><td id="resultDirector"></td></tr>
+		<tr><td>Starring:</td><td id="resultStars"></td></tr>
+		<tr><td>Running Time:</td><td id="resultTime"></td></tr>
+		<tr><td>Box Office:</td><td id="resultBoxOffice"></td></tr>
+		<tr><td>Rating:</td><td id="resultRating"></td></tr>
+		<tr><td><img id="ratingImg"></td></tr>
+	</table>
+</div>
+
+<br><br>
+<div id="raw">
+</div>
+
+</body>
+</html>

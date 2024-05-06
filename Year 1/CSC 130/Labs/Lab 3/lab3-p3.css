@@ -1,0 +1,66 @@
+body {
+	font-size: 20pt;
+	padding: 2em;
+}
+
+/* rule for divs found within other divs */
+/* interesting how its only for div divs, so that the containers have a border*/
+div div { 
+	border-radius: 5px;
+	border: 5px solid black;
+	margin: 2px;
+}
+
+/* for all containers to be flex*/
+.container {
+	display: flex;  
+	flex-flow: row wrap;
+}
+
+/* rule for items with parent equal to container */
+/* only applies to elements within container but not container itself*/
+.container > * { 
+	padding: 10px;
+	/* all items minimum size is 100% width */
+	flex: 1 100%;
+}
+/* looks like this only affects beside elements to let everything to be on a row*/
+@media all and (min-width: 800px) {
+	.beside { 
+		/* the side bars can share a row */
+		flex: 1 auto;
+	}
+}
+
+/* Looks like this affects only the thing for main to be bigger, didn't realise you could do that*/
+@media all and (min-width: 1000px) {
+	/* main element gets 5x more space than side bars. The declaration 
+	 above for 600px allows side bars to share the row  */
+	.main	{ flex: 2 10px; }
+	.left 	{ order: 1; 
+	flex: 1} 
+	.main	{ order: 2; }
+	.right	{ order: 3; }
+	.footer	{ order: 4; }
+}
+
+.top {
+	background: tomato;
+}
+
+.footer {
+	background: lightgreen;
+}
+
+.main {
+	text-align: left;
+	background: deepskyblue;
+}
+
+.left{
+	background: gold;
+}
+
+.right {
+	background: hotpink;
+}

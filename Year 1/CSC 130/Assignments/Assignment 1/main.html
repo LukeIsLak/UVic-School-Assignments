@@ -1,0 +1,88 @@
+<html>
+	<head>
+		<title>Learning HTML</title>
+		<link href="mainstylesheet.css" type="text/css" rel="stylesheet">
+		<script src="learnHTML.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+	<div class="sticky">
+		<div class ="learn-bar">
+			<div class="learn-content">
+				<a href="home.html"class="logo"> </a></li>
+				<a href="#basics" class="divisor learn">The Basics</a></li>
+				<a href="#headers" class="divisor learn">Learn Headers</a></li>
+				<a href="#paragraphs" class="divisor learn">Learn Paragraphs</a></li>
+				<a href="#lists">Learn Lists</a></li>
+				<a href="resume.html"class="divisor">Resume</a></li>
+				<a href="aboutme.html"class="divisor">About Me</a></li>
+			</div>
+		</div>
+	</div>
+	<div id="background">
+		<div class="content-title middle-fixed-x middle-fixed-y">
+			<p class="title-text">Learning HTML</p>
+			<p class="subtitle-text">The easy way!</p>
+			<div class="social-media-link middle-fixed-x">
+				<a href="https://www.facebook.com/universityofvictoria/" class="divisor s-link"><img src="facebook.png"></a></li>
+				<a href="https://twitter.com/uvic" class="divisor s-link"><img src="twitter.png"></</a></li>
+				<a href="https://www.instagram.com/universityofvictoria/" class="divisor s-link"><img src="instagram.png"></a></li>
+			</div>
+		</div>
+	</div>
+	<div class="description">
+		<!-- learnt span from https://stackoverflow.com/questions/4622808/html-changing-colors-of-specific-words-in-a-string-of-text -->
+		<div id="basics" class="link-buffer"><p class="definition">Learning the foundation of html is fairly easy compared to other languages. Using easy to learn --although one of a kind-- syntax alongside text based data to define websites. This website is used to elaborate the fundamentals of HTML, although other resources such as CSS and Javascript can be used to make your website to the next level.
+			<br> 
+			<br> HTML is boiled down to elements and the contents within elements.
+			<br> Elements are used to display content within a page. Each element has a different purpose and are displayed/visualized differently. These use syntanx of <span class="orange">&lt element type &gt</span> to define the start of an element and <span class="orange">&lt / element type &gt</span> to define the end of an element. This applies to most elements. An example of this can be seen here:
+			<br> <span class="orange code-example">&lt Element Type&gt Content Within the Element&lt /Element Type&gt</span>
+			<br> These make up the majority of your page.
+			<br> 
+			<br> Content within elements are fairly simple. For most of the elements it applies an text to the said element. This is more explained for the each of the elements when learning about them specifically.
+		</div>
+		<div id="headers"class="link-buffer"><p class="definition"><span class="orange">Headers</span> make up headings of text. They're similar to headings represented common word processors. Such they can be relevant to define beginnings of text, titles, etc..
+			<br> Heading are written in HTML as: 
+			<br><span class="orange code-example">&lth&gt Heading Content &lt/h&gt</span>
+			<br>Where the <span class="orange">#</span> is of some value from <span class="orange">1</span> to <span class="orange">6</span>, where a value of <span class="orange">1</span> has a greater size than a value of <span class="orange">6</span>.
+			<br>Example would be <span class="orange code-example">&lt h3 &gt This is a header &lt/h3&gt </span> would look like <h3 class="orange code-display">This is a Header</h3>
+			<br>Hence the bigger the value, the larger the <span class="orange">header</span>.
+		</p></div>
+		<div id="paragraphs" class="definition link-buffer"><p><span class="orange">Paragraphs</span> is a fundamental of inserting text within your website using HTML.
+			<br> Parapgraphs are written in HTML as:
+			<br><span class="orange code-example">&ltp&gt Paragraph content &lt/p&gt</span>
+			<br>Example would be <span class="orange code-example">&lt p &gt This is a Paragraph, Hello World &lt/p&gt</span> would look like <p class="orange code-display">This is a Paragraph, Hello World</p>
+		</p></div>
+		<div id="lists" class="definition link-buffer"><p><span class="orange">Lists</span> are a common way to list multiple elements into a single organized element.
+			<br> There a multiple ways to display lists in. For example there are unordered lists (ul), and ordered lists (ol).
+			<br> To write the elements inside the lists, you uses a <span class="orange code-example">&ltli&gtElement Content&lt/li&gt</span>
+			<br> Unordered lists simply use bullet points to display your elements.
+			<br> Unordered lists are written in HTML as (as many elements can be added as wanted):
+			<br><div class="code-example"><span class="orange">&ltul&gt</span>
+			<br><span class="orange">&ltli&gt Element 1 &ltli&gt</span>
+			<br><span class="orange">&ltli&gt Element 2 &ltli&gt</span>
+			<br><span class="orange">&ltli&gt Element 3 &ltli&gt</span>
+			<br><span class="orange">&lt/ul&gt</span></div>
+			<br>This would look like <ul class="orange code-display"><li>Element 1</li><li>Element 2</li><li>Element 3</li></ul>
+			<br>
+			<br> Ordered lists use numbered points to display your elements.
+			<br> ORdered lists are written in HTML as (as many elements can be added as wanted):
+			<br><div class="code-example"><span class="orange">&ltol&gt</span>
+			<br><span class="orange">&ltli&gt Element 1 &ltli&gt</span>
+			<br><span class="orange">&ltli&gt Element 2 &ltli&gt</span>
+			<br><span class="orange">&ltli&gt Element 3 &ltli&gt</span>
+			<br><span class="orange">&lt/ol&gt</span></div>
+			<br>This would look like <ol class="orange code-display"><li>Element 1</li><li>Element 2</li><li>Element 3</li></ol>
+		</p></div>
+		<!-- <p id="table"></p> -->
+	</div>
+	
+	<div class="content">
+		<div class="flex-grid-code">
+			<textarea class="input-code" id="input" placeholder="Insert Code Here" onchange="setText()"></textarea>
+			<div class="output-code" id="output"></div>
+		</div>
+
+	</div>  
+	</body>
+</html>

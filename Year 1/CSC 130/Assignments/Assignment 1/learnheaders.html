@@ -1,0 +1,53 @@
+<html>
+	<head>
+		<title>Learning HTML</title>
+		<link href="mainstylesheet.css" type="text/css" rel="stylesheet">
+		<script src="learnHTML.js" type="text/javascript"></script>
+	</head>
+	<body>
+
+	<div class="sticky">
+		<div class ="learn-bar">
+			<div class="learn-content">
+				<a href="home.html"class="logo"> </a></li>
+				<a href="learnbasics.html" class="divisor learn">The Basics</a></li>
+				<a href="learnheaders.html" class="divisor learn">Learn Headers</a></li>
+				<a href="learnparagraphs.html" class="divisor learn">Learn Paragraphs</a></li>
+				<a href="learnlists.html">Learn Lists</a></li>
+				<a href="resume.html"class="divisor">Resume</a></li>
+				<a href="aboutme.html"class="divisor">About Me</a></li>
+			</div>
+		</div>
+	</div>
+	<div id="background">
+		<div class="content-title middle-fixed-x middle-fixed-y">
+			<p class="title-text">Learning HTML</p>
+			<p class="subtitle-text">The easy way!</p>
+			<div class="social-media-link middle-fixed-x">
+				<a href="https://www.facebook.com/universityofvictoria/" class="divisor s-link"><img src="facebook.png"></a></li>
+				<a href="https://twitter.com/uvic" class="divisor s-link"><img src="twitter.png"></</a></li>
+				<a href="https://www.instagram.com/universityofvictoria/" class="divisor s-link"><img src="instagram.png"></a></li>
+			</div>
+		</div>
+	</div>
+	<div class="description">
+		<!-- learnt span from https://stackoverflow.com/questions/4622808/html-changing-colors-of-specific-words-in-a-string-of-text -->
+		<div id="headers"class="link-buffer"><p class="definition"><span class="orange">Headers</span> make up headings of text. They're similar to headings represented common word processors. Such they can be relevant to define beginnings of text, titles, etc..
+			<br> Heading are written in HTML as: 
+			<br><span class="orange code-example">&lth&gt Heading Content &lt/h&gt</span>
+			<br>Where the <span class="orange">#</span> is of some value from <span class="orange">1</span> to <span class="orange">6</span>, where a value of <span class="orange">1</span> has a greater size than a value of <span class="orange">6</span>.
+			<br>Example would be <span class="orange code-example">&lt h3 &gt This is a header &lt/h3&gt </span> would look like <h3 class="orange code-display">This is a Header</h3>
+			<br>Hence the bigger the value, the larger the <span class="orange">header</span>.
+		<</p></div>
+		<!-- <p id="table"></p> -->
+	</div>
+	
+	<div class="content">
+		<div class="flex-grid-code">
+			<textarea class="input-code" id="input" placeholder="Insert Code Here" onchange="setText()"></textarea>
+			<div class="output-code" id="output"></div>
+		</div>
+
+	</div>  
+	</body>
+</html>
