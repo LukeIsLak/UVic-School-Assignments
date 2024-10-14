@@ -1,0 +1,531 @@
+2024/10/04 23:55:58 [testMake] Testing Makefile exists and can compile ssi, 0.25
+2024/10/04 23:55:58 [COMMAND]: /usr/bin/make -C . clean
+2024/10/04 23:55:58 make: Entering directory '/home/lukekuligowicz/Desktop/CSC 360/p1'
+rm -f *.o
+rm -f ssi
+make: Leaving directory '/home/lukekuligowicz/Desktop/CSC 360/p1'
+2024/10/04 23:55:58 [COMMAND]: /usr/bin/make -C .
+2024/10/04 23:56:04 make: Entering directory '/home/lukekuligowicz/Desktop/CSC 360/p1'
+gcc -Wall -std=c18 -o ssi main.c -lreadline
+make: Leaving directory '/home/lukekuligowicz/Desktop/CSC 360/p1'
+2024/10/04 23:56:04 ==== Test name: testMake, Mark received: 0.25 ====
+
+2024/10/04 23:56:05 [testREADME] Testing README file exists, 0.25
+2024/10/04 23:56:05 [testREADME] README content: 
+# P1 : Simple Shell Interpreter
+
+### Overview
+This program is to mimic a Simple Shell Interpreter for CSC 360 Programming Assignment 1
+
+### Features
+The program is capable of the following feature:
+    - Foreground Execution
+        - Able to execute commands
+    - Change in Directory
+        - Able to change the current working directory of the process
+    - Background Execution
+        - Able to run commands in the backgrounds, will let user know when it is completed
+        - COMMANDS:
+            - bg <command> : Add a command to run in the background
+            - bglist : Prints a list of all currently running Background processes
+            - (additional) bgkill <process number> : Kills the specific process with that id
+    - (additional) Command History
+        - Can use the arrow keys change between previously inputed commands
+        - Up and Down arrow keys work
+
+### Technologies Used
+- Project is done entirely in C, additional help with MAKEFILE
+
+### Installation
+1. **Prerequisites**: Install a C compiler such as gcc
+2. **Clone the repository**:
+    ```
+    git clone https://gitlab.csc.uvic.ca/courses/2024091/CSC360_COSI/assignments/lukekuligowicz/p1.git
+    ```
+
+### Usage
+1. **How to run the program**:
+
+    using make, should get a ssi file
+    ```
+    make
+    ```
+
+    Upon that
+    '''
+    ./ssi
+    '''
+
+### File Structure
+Main files (All created by Luke Kuligowicz)
+    - main.c : main holder file, manages the program
+    - linkedlists.h : helper file to handle and control linked lists
+    - command.h : helper file to handle command history
+    - background.h : helper file to handle background execution related tasks
+    - token.h : helper file to tokenize / untokenize strings
+    - MAKEFILE : make file
+    - README.txt : readme
+2024/10/04 23:56:05 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.25]): 
+2024/10/04 23:56:06 mark received: y
+2024/10/04 23:56:06 ==== Test name: testREADME, Mark received: 0.25 ====
+
+2024/10/04 23:56:07 [testExecSSI] Testing your ssi can be executed without additional parameter and shows correct prompt, 0.50
+2024/10/04 23:56:07 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:07 Sending command to SSI: ls  
+2024/10/04 23:56:08 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.50]): 
+2024/10/04 23:56:09 mark received: y
+2024/10/04 23:56:09 ==== Test name: testExecSSI, Mark received: 0.50 ====
+
+2024/10/04 23:56:10 [testExec] Testing exec without parameters, 1.00
+2024/10/04 23:56:10 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:10 Sending command to SSI: ls  
+2024/10/04 23:56:10 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:11 mark received: y
+2024/10/04 23:56:11 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:11 Sending command to SSI: pwd  
+2024/10/04 23:56:12 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:12 mark received: y
+2024/10/04 23:56:12 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:13 Sending command to SSI: uname  
+2024/10/04 23:56:13 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:14 mark received: y
+2024/10/04 23:56:14 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:14 Sending command to SSI: date  
+2024/10/04 23:56:14 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:15 mark received: y
+2024/10/04 23:56:15 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:15 Sending command to SSI: hostname  
+2024/10/04 23:56:15 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:16 mark received: y
+2024/10/04 23:56:16 ==== Test name: testExec, Mark received: 1.00 ====
+
+2024/10/04 23:56:17 [testExecWithParameters] Testing exec with parameters, 1.00
+2024/10/04 23:56:17 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:17 Sending command to SSI: 
+ls temp
+exit
+
+2024/10/04 23:56:17 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > ls temp
+A
+B
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:17 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:18 mark received: y
+2024/10/04 23:56:18 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:18 Sending command to SSI: 
+ls -alh
+exit
+
+2024/10/04 23:56:19 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > ls -alh
+total 2.1M
+drwxrwxr-x 4 lukekuligowicz lukekuligowicz 4.0K Oct  4 23:56 .
+drwxrwxr-x 4 lukekuligowicz lukekuligowicz 4.0K Sep 24 14:24 ..
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 3.6K Oct  4 23:29 background.h
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 1.1K Oct  4 21:31 command.h
+drwxrwxr-x 8 lukekuligowicz lukekuligowicz 4.0K Oct  4 23:39 .git
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz  255 Oct  4 22:05 helperfunctions.h
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 2.0K Oct  4 15:16 linkedlists.h
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 7.2K Oct  4 23:51 main.c
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz  191 Oct  4 22:15 Makefile
+-rwxrwxrwx 1 lukekuligowicz lukekuligowicz 1.9M Oct  4 15:57 marking-linux-amd64
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 1.8K Oct  4 23:36 README.md
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 1.8K Oct  4 23:36 README.txt
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz  26K Oct  4 23:56 self-marking.log
+-rwxrwxr-x 1 lukekuligowicz lukekuligowicz  23K Oct  4 23:56 ssi
+drwxr-xr-x 4 lukekuligowicz lukekuligowicz 4.0K Oct  4 15:58 temp
+-rw-rw-r-- 1 lukekuligowicz lukekuligowicz 1.2K Oct  4 23:31 token.h
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:19 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:19 mark received: y
+2024/10/04 23:56:19 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:19 Sending command to SSI: 
+ls temp/A/C
+exit
+
+2024/10/04 23:56:20 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > ls temp/A/C
+AC.txt
+D
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:20 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:20 mark received: y
+2024/10/04 23:56:20 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:20 Sending command to SSI: 
+cat temp/A/C/AC.txt
+exit
+
+2024/10/04 23:56:21 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cat temp/A/C/AC.txt
+This is the content for AC.txt
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:21 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:22 mark received: y
+2024/10/04 23:56:22 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:22 Sending command to SSI: 
+echo hello
+exit
+
+2024/10/04 23:56:22 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > echo hello
+hello
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:22 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:23 mark received: y
+2024/10/04 23:56:23 ==== Test name: testExecWithParameters, Mark received: 1.00 ====
+
+2024/10/04 23:56:24 [testNotExistCommand] Testing non-existent command, 1.00
+2024/10/04 23:56:24 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:24 Sending command to SSI: 
+nonexistent 
+exit
+
+2024/10/04 23:56:24 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > nonexistent 
+nonexistent: No such file or directory
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:24 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2024/10/04 23:56:25 mark received: y
+2024/10/04 23:56:25 ==== Test name: testNotExistCommand, Mark received: 1.00 ====
+
+2024/10/04 23:56:26 [testExecLongRunning] Testing exec with long running command, 1.00
+2024/10/04 23:56:26 [COMMAND]: ./ssi
+2024/10/04 23:56:26 Waiting 5 seconds before sending Ctrl-C signal
+2024/10/04 23:56:31 Sending interrupt signal Ctrl-C
+2024/10/04 23:56:31 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > ping -c 10 1.1.1.1
+PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=55 time=3.67 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=55 time=3.44 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=55 time=3.45 ms
+64 bytes from 1.1.1.1: icmp_seq=4 ttl=55 time=3.41 ms
+64 bytes from 1.1.1.1: icmp_seq=5 ttl=55 time=3.34 ms
+2024/10/04 23:56:31 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:32 64 bytes from 1.1.1.1: icmp_seq=6 ttl=55 time=3.23 ms
+2024/10/04 23:56:33 64 bytes from 1.1.1.1: icmp_seq=7 ttl=55 time=3.30 ms
+2024/10/04 23:56:34 64 bytes from 1.1.1.1: icmp_seq=8 ttl=55 time=3.37 ms
+2024/10/04 23:56:35 64 bytes from 1.1.1.1: icmp_seq=9 ttl=55 time=3.31 ms
+2024/10/04 23:56:36 64 bytes from 1.1.1.1: icmp_seq=10 ttl=55 time=3.45 ms
+
+--- 1.1.1.1 ping statistics ---
+10 packets transmitted, 10 received, 0% packet loss, time 9014ms
+rtt min/avg/max/mdev = 3.225/3.394/3.666/0.114 ms
+2024/10/04 23:56:36 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2024/10/04 23:56:41 mark received: y
+2024/10/04 23:56:41 ==== Test name: testExecLongRunning, Mark received: 1.00 ====
+
+2024/10/04 23:56:42 [testPwd] Testing printing current working directory, 1.00
+2024/10/04 23:56:42 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:42 Sending command to SSI: 
+pwd 
+exit
+
+2024/10/04 23:56:42 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > pwd 
+/home/lukekuligowicz/Desktop/CSC 360/p1
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:42 pwd should output: 
+/home/lukekuligowicz/Desktop/CSC 360/p1
+2024/10/04 23:56:42 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2024/10/04 23:56:44 mark received: y
+2024/10/04 23:56:44 ==== Test name: testPwd, Mark received: 1.00 ====
+
+2024/10/04 23:56:45 [testChangeRelativeDir] Testing changing relative directory, 1.00
+2024/10/04 23:56:45 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:45 Sending command to SSI: 
+cd ./temp
+pwd
+exit
+
+2024/10/04 23:56:45 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ./temp
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1/temp
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp > exit
+2024/10/04 23:56:45 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:46 mark received: y
+2024/10/04 23:56:46 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:46 Sending command to SSI: 
+cd ./A
+pwd
+exit
+
+2024/10/04 23:56:47 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp > cd ./A
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1/temp/A
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A > exit
+2024/10/04 23:56:47 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:48 mark received: y
+2024/10/04 23:56:48 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:48 Sending command to SSI: 
+cd ./C
+pwd
+exit
+
+2024/10/04 23:56:48 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A > cd ./C [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[KC
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A/C > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1/temp/A/C
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A/C > exit [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Kt
+2024/10/04 23:56:48 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:49 mark received: y
+2024/10/04 23:56:49 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:49 Sending command to SSI: 
+cd ../..
+pwd
+exit
+
+2024/10/04 23:56:49 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A/C > cd ../..
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1/temp
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp > exit
+2024/10/04 23:56:49 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:50 mark received: y
+2024/10/04 23:56:50 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:50 Sending command to SSI: 
+cd ./D/../..
+pwd
+exit
+
+2024/10/04 23:56:50 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A/C > cd ./D/../..
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1/temp/A
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1/temp/A > exit
+2024/10/04 23:56:50 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:51 mark received: y
+2024/10/04 23:56:51 ==== Test name: testChangeRelativeDir, Mark received: 1.00 ====
+
+2024/10/04 23:56:52 [testChangeAbsDir] Testing changing absolute directory, 1.00
+2024/10/04 23:56:52 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:52 Sending command to SSI: 
+cd /tmp
+pwd
+exit
+
+2024/10/04 23:56:52 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /tmp
+lukekuligowicz@linux204: /tmp > pwd
+/tmp
+lukekuligowicz@linux204: /tmp > exit
+2024/10/04 23:56:52 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:53 mark received: y
+2024/10/04 23:56:53 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:53 Sending command to SSI: 
+cd /tmp/../tmp/../tmp/
+pwd
+exit
+
+2024/10/04 23:56:53 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /tmp/../tmp/../tmp/
+lukekuligowicz@linux204: /tmp > pwd
+/tmp
+lukekuligowicz@linux204: /tmp > exit
+2024/10/04 23:56:53 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:55 mark received: y
+2024/10/04 23:56:55 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:55 Sending command to SSI: 
+cd /
+pwd
+exit
+
+2024/10/04 23:56:55 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /
+lukekuligowicz@linux204: / > pwd
+/
+lukekuligowicz@linux204: / > exit
+2024/10/04 23:56:55 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:55 mark received: y
+2024/10/04 23:56:55 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:55 Sending command to SSI: 
+cd /.././
+pwd
+exit
+
+2024/10/04 23:56:56 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /.././
+lukekuligowicz@linux204: / > pwd
+/
+lukekuligowicz@linux204: / > exit
+2024/10/04 23:56:56 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:56 mark received: y
+2024/10/04 23:56:56 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:56 Sending command to SSI: 
+cd /tmp/nonexisit/
+pwd
+exit
+
+2024/10/04 23:56:57 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /tmp/nonexisit/
+</tmp/nonexisit/> No such directory
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:56:57 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:56:57 mark received: y
+2024/10/04 23:56:57 ==== Test name: testChangeAbsDir, Mark received: 1.00 ====
+
+2024/10/04 23:56:58 [testChangeHomeDir] Testing changing home directory, 1.00
+2024/10/04 23:56:58 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:56:58 Sending command to SSI: 
+cd /tmp
+pwd
+exit
+
+2024/10/04 23:56:58 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /tmp
+lukekuligowicz@linux204: /tmp > pwd
+/tmp
+lukekuligowicz@linux204: /tmp > exit
+2024/10/04 23:56:58 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:57:00 mark received: y
+2024/10/04 23:57:00 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:57:00 Sending command to SSI: 
+cd ~
+pwd
+exit
+
+2024/10/04 23:57:00 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~
+lukekuligowicz@linux204: /home/lukekuligowicz > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz > exit
+2024/10/04 23:57:00 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:57:01 mark received: y
+2024/10/04 23:57:01 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:57:01 Sending command to SSI: 
+cd ~/
+pwd
+exit
+
+2024/10/04 23:57:01 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~/
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 23:57:01 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:57:01 mark received: y
+2024/10/04 23:57:01 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:57:01 Sending command to SSI: 
+cd ~/../../
+pwd
+exit
+
+2024/10/04 23:57:02 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~/../../
+lukekuligowicz@linux204: / > pwd
+/
+lukekuligowicz@linux204: / > exit
+2024/10/04 23:57:02 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:57:02 mark received: y
+2024/10/04 23:57:02 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:57:02 Sending command to SSI: 
+cd 
+pwd
+exit
+
+2024/10/04 23:57:03 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd 
+lukekuligowicz@linux204: /home/lukekuligowicz > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz > exit
+2024/10/04 23:57:03 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 23:57:03 mark received: y
+2024/10/04 23:57:03 ==== Test name: testChangeHomeDir, Mark received: 1.00 ====
+
+2024/10/04 23:57:04 [testPromptCorrect] Testing prompt is correct, 1.00
+2024/10/04 23:57:04 Among all the above changing directory tests, does the prompt always show the correct cwd after each `cd` command?
+2024/10/04 23:57:04 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2024/10/04 23:57:06 mark received: y
+2024/10/04 23:57:06 ==== Test name: testPromptCorrect, Mark received: 1.00 ====
+
+2024/10/04 23:57:07 [testBgPing] Testing `bg` command with `ping`, 5.00
+2024/10/04 23:57:07 Please wait for around 15 seconds
+2024/10/04 23:57:07 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 23:57:07 Sending command to SSI: bg ping -c 5 1.1.1.1
+2024/10/04 23:57:07 Sending command to SSI: bg ping -c 10 8.8.8.8
+2024/10/04 23:57:07 Sending command to SSI: bglist  
+2024/10/04 23:57:07 Sending command to SSI: sleep 5 
+2024/10/04 23:57:07 Sending command to SSI: bglist  
+2024/10/04 23:57:07 Sending command to SSI: sleep 5 
+2024/10/04 23:57:07 Sending command to SSI: bglist  
+2024/10/04 23:57:17 Do you want to award mark for this test? (y/n or input a floating number between [0, 5.00]): 
+2024/10/04 23:57:18 mark received: y
+2024/10/04 23:57:18 ==== Test name: testBgPing, Mark received: 5.00 ====
+
+2024/10/04 23:57:19 
+==== Final Grade: 15.000000====
+ukekuligowicz/Desktop/CSC 360/p1 > cd /tmp/nonexisit/
+</tmp/nonexisit/> No such directory
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > pwd
+/home/lukekuligowicz/Desktop/CSC 360/p1
+lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > exit
+2024/10/04 20:00:21 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:22 mark received: y
+2024/10/04 20:00:22 ==== Test name: testChangeAbsDir, Mark received: 1.00 ====
+
+2024/10/04 20:00:23 [testChangeHomeDir] Testing changing home directory, 1.00
+2024/10/04 20:00:23 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:23 Sending command to SSI: 
+cd /tmp
+pwd
+exit
+
+2024/10/04 20:00:23 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd /tmp
+lukekuligowicz@linux204: /tmp > pwd
+/tmp
+lukekuligowicz@linux204: /tmp > exit
+2024/10/04 20:00:23 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:25 mark received: y
+2024/10/04 20:00:25 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:25 Sending command to SSI: 
+cd ~
+pwd
+exit
+
+2024/10/04 20:00:25 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~
+lukekuligowicz@linux204: /home/lukekuligowicz > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz > exit
+2024/10/04 20:00:25 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:26 mark received: y
+2024/10/04 20:00:26 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:26 Sending command to SSI: 
+cd ~/
+pwd
+exit
+
+2024/10/04 20:00:26 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~/
+lukekuligowicz@linux204: /home/lukekuligowicz > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz > exit
+2024/10/04 20:00:26 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:27 mark received: y
+2024/10/04 20:00:27 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:27 Sending command to SSI: 
+cd ~/../../
+pwd
+exit
+
+2024/10/04 20:00:28 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd ~/../../
+lukekuligowicz@linux204: / > pwd
+/
+lukekuligowicz@linux204: / > exit
+2024/10/04 20:00:28 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:29 mark received: y
+2024/10/04 20:00:29 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:29 Sending command to SSI: 
+cd 
+pwd
+exit
+
+2024/10/04 20:00:29 lukekuligowicz@linux204: /home/lukekuligowicz/Desktop/CSC 360/p1 > cd 
+lukekuligowicz@linux204: /home/lukekuligowicz > pwd
+/home/lukekuligowicz
+lukekuligowicz@linux204: /home/lukekuligowicz > exit
+2024/10/04 20:00:29 Do you want to award mark for this test? (y/n or input a floating number between [0, 0.20]): 
+2024/10/04 20:00:30 mark received: y
+2024/10/04 20:00:30 ==== Test name: testChangeHomeDir, Mark received: 1.00 ====
+
+2024/10/04 20:00:31 [testPromptCorrect] Testing prompt is correct, 1.00
+2024/10/04 20:00:31 Among all the above changing directory tests, does the prompt always show the correct cwd after each `cd` command?
+2024/10/04 20:00:31 Do you want to award mark for this test? (y/n or input a floating number between [0, 1.00]): 
+2024/10/04 20:00:33 mark received: y
+2024/10/04 20:00:33 ==== Test name: testPromptCorrect, Mark received: 1.00 ====
+
+2024/10/04 20:00:34 [testBgPing] Testing `bg` command with `ping`, 5.00
+2024/10/04 20:00:34 Please wait for around 15 seconds
+2024/10/04 20:00:34 [COMMAND]: /home/lukekuligowicz/Desktop/CSC 360/p1/ssi
+2024/10/04 20:00:35 Sending command to SSI: bg ping -c 5 1.1.1.1
+2024/10/04 20:00:35 Sending command to SSI: bg ping -c 10 8.8.8.8
+2024/10/04 20:00:35 Sending command to SSI: bglist  
+2024/10/04 20:00:35 Sending command to SSI: sleep 5 
+2024/10/04 20:00:35 Sending command to SSI: bglist  
+2024/10/04 20:00:35 Sending command to SSI: sleep 5 
+2024/10/04 20:00:35 Sending command to SSI: bglist  
+2024/10/04 20:00:45 Do you want to award mark for this test? (y/n or input a floating number between [0, 5.00]): 
+2024/10/04 20:01:07 mark received: y
+2024/10/04 20:01:07 ==== Test name: testBgPing, Mark received: 5.00 ====
+
+2024/10/04 20:01:08 
+==== Final Grade: 15.000000====
