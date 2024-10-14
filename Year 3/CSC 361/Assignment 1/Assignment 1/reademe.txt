@@ -1,0 +1,123 @@
+CSC 361 - Fall 2024
+Programming Assignment 1
+Luke Kuligowicz
+V01019209
+
+---------------------------------------------------
+
+FILES
+
+    WebTester.py - Handles the User Input
+    URIHandler.py - Handles the parsing of the URI
+    SocketHandler.py - Handles the socket and related functions, handles the outputs
+
+
+---------------------------------------------------
+
+COMPILATION / USAGE
+
+    This is the submission for CSC 361 - Assignment 1, were we were tasked to create a WebTester that would connect to a website and gather information
+
+    In the directory of the project
+    1) open a bash terminal
+    2) go to the directory where WebTester.py, SocketHandler.py, and URIHandler are kept
+    2) run this command into the terminal.
+
+    ```
+    python WebTester.py [URI]
+    ```
+
+    Example Input
+    ```
+    python WebTester.py https://www.uvic.ca
+    ```
+
+    NOTE: WebTester.py is looking for a URI as a system argument, if additional arguments are passed they will be ingored.
+    If no inputs are passes the program will terminate with a custom error.
+
+    --- URI Properties ---
+    WebTester.py accpets the following types of inputs
+    - http://example.com/path
+    - https://www.example.com/path
+    - example.com/
+    - example.com
+    - www.example.com
+    - www.example.com[:port number]
+
+    NOTE: WebTester.py uses URIHandler.py to parse URI's, if no protocol is detected, https is automatically assumed.
+    NOTE: URI's that are outside of the accepted inputs will be handled by URIHandler.py, but will exit the program with a custom error status
+
+---------------------------------------------------
+
+OUTPUT
+
+    The program outputs the following
+    1) Whether or not the server is password protected
+    2) Whether or not the server supports http2
+    3) A list of the servers cookies
+        - If cookies include a domain server or expiry date, that is also included
+
+
+    Additionally, the program outputs the current status of the program, for example, a potential output could be the following
+
+
+```
+> python WebTester.py https://www.uvic.ca/
+---Initializing: Starting SmartClient with an input of https://www.uvic.ca/---
+---Parsed URI---
+
+~~~~URI Components~~~~
+Protocol: https
+Host: www.uvic.ca
+Port: 443
+File Path:
+~~~~~~~~~~~~~~~~~~~~~~
+
+---Creating Socket---
+---Created Socket---
+---Connecting to Server---
+---Connected to Server---
+---Sending a Message---
+
+~~~~~HTTP REQUEST~~~~~~
+GET / HTTP/1.1
+Host: www.uvic.ca
+Connection: close
+
+
+~~~~~~~~~~~~~~~~~~~~~~~
+
+---Message Sent---
+---Recieving A Message From The Server---
+---Starting to Recieve Message---
+---Output: Final Response Headers---
+HTTP/1.1 200 OK
+Date: Sat, 28 Sep 2024 03:16:47 GMT
+Expires: Thu, 19 Nov 1981 08:52:00 GMT
+Cache-Control: no-store, no-cache, must-revalidate
+Pragma: no-cache
+Set-Cookie: PHPSESSID=797mlq8a8nj5kkul7fd7a8gq5n; path=/; secure; HttpOnly; SameSite=Lax
+Set-Cookie: uvic_bar=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/; domain=.uvic.ca; secure; HttpOnly       
+X-XSS-Protection: 1; mode=block
+X-Content-Type-Options: nosniff
+Referrer-Policy: strict-origin-when-cross-origin
+Vary: Accept-Encoding,User-Agent
+Feature-Policy: accelerometer 'none'; camera 'none'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; payment 'none'; usb 'none'
+Connection: close
+Content-Type: text/html; charset=UTF-8
+Set-Cookie: www_def=!rZ6IGna69RP9ovN2WoCbqs3+3m8im4+09cjikF8wG5d4dmADw4neUCYwppxKqLwu7ikHEuC7OVHKp4A=; path=/; Httponly; Secure 
+Strict-Transport-Security: max-age=16070400
+Set-Cookie: TS018b3cbd=0183e0753478f6bd998e00ed8f71225326d5880a75f241b9364e56125f13668c195efaa5ed61773cd1654853e908d1b557a2e2ec0466011a3205599c7449b95156135d46a95a938f8f03bbeb427527dbe9f60d2f2f; Path=/; Secure; HTTPOnly
+Set-Cookie: TS0165a077=0183e07534f63559c3e3d46c195d6d5de5ebee13b2f241b9364e56125f13668c195efaa5ede2feacf243ddc3dfb40370ca879d43184cf92bc3019536056e40e423948ad98f; path=/; domain=.uvic.ca; HTTPonly; Secure
+
+---Output: Final Additional Checks---
+---Output: Is Not Password Protected? - No---
+---Output: Supports H2? - NO---
+---Output: Cookies - Printing All Cookies Below---
+Cookie Name: PHPSESSID
+Cookie Name: uvic_bar, Expires: Thu, 01-Jan-1970 00:00:01 GMT, Domain: .uvic.ca
+Cookie Name: www_def
+Cookie Name: TS018b3cbd
+Cookie Name: TS0165a077, Domain: .uvic.ca
+---Output Complete: Everything was Successfull---
+```
