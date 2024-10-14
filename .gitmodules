@@ -1,0 +1,3 @@
+[submodule "p1"]
+	path = p1
+	url = https://gitlab.csc.uvic.ca/courses/2024091/CSC360_COSI/assignments/lukekuligowicz/p1.git
