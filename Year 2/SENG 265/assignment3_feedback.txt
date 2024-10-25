@@ -1,0 +1,55 @@
+Assignment 3 Grading:
+---------------------
+Student lukekuligowicz
+Grade: 100
+
+Compile output: 5/5
+
+Compiled text-cleaner
+
+Compiled stop-word-remover
+
+Tests results 60/60
+
+Test 1a: Passed
+Test 2a: Passed
+Test 1b: Passed
+Test 2b: Passed
+Test 1c: Passed
+Test 2c: Passed
+
+Tests Feedback:
+6/6 Tests passed.
+
+Committing practices: 15/15
+
+git log --oneline
+1ce7a25	Luke Kuligowicz	Fri Oct 13 22:17:00 2023 -0700	Fixed text-cleaner
+95a5419	Luke Kuligowicz	Fri Oct 13 15:37:48 2023 -0700	Added stemmer.c from Assignment 3
+7e97d57	Luke Kuligowicz	Fri Oct 13 15:34:14 2023 -0700	Added part text-cleaner.c and stop-word-remover.c for Assignment 3
+b68ed37	Luke Kuligowicz	Wed Oct 11 16:30:07 2023 -0700	Added Lab 05
+270b110	Luke Kuligowicz	Fri Oct 6 12:47:29 2023 -0700	New Assignment 2
+4f42992	Luke Kuligowicz	Wed Oct 4 16:42:05 2023 -0700	Added Lab-04 to git
+0cd525c	Luke Kuligowicz	Tue Oct 3 14:50:35 2023 -0700	File added for assignment 2
+25b8d44	Luke Kuligowicz	Wed Sep 27 17:04:40 2023 -0700	finished lab3!
+83e449b	Luke Kuligowicz	Wed Sep 20 16:20:35 2023 -0700	added lab-01 to git
+b46e1bf	Luke Kuligowicz	Wed Sep 20 13:18:04 2023 -0700	commit_log has text in it now
+485ead1	Luke Kuligowicz	Wed Sep 20 13:14:07 2023 -0700	Adding the commit_log.txt
+6e11bf9	Lynn Palmer	Wed Sep 13 11:24:26 2023 -0700	initial
+
+
+Modularization: 10/10
+
+Documentation: 10/10
+
+- Good formatting and structure of the code that facilitates reading
+  and understanding.
+
+- Good naming conventions for functions and variables.
+
+- Good attempt at documenting the code using comments to describe
+  important aspects of the solution.
+
+- Appropriate use of code segmentation (i.e. function creation and
+  use) that facilitates the usability and eventual maintainability of
+  your solution.

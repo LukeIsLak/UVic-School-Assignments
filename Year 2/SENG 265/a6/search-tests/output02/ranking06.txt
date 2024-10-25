@@ -1,0 +1,13 @@
+0.3036 three_colours_blue.txt
+0.1805 juliette_binoche.txt
+0.0408 the_rolling_stones.txt
+0.0389 wes_anderson.txt
+0.0217 eternal_sunshine.txt
+0.0210 the_royal_tenenbaums.txt
+0.0165 inglorious_basterds.txt
+0.0123 kate_winslet.txt
+0.0104 the_beatles.txt
+0.0000 satisfaction.txt
+0.0000 quentin_tarantino.txt
+0.0000 pulp_fiction.txt
+0.0000 hey_jude.txt

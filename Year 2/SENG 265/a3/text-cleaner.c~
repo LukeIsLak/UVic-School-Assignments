@@ -1,0 +1,51 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <ctype.h>
+
+
+int main(int argc, char* argv[]) {
+	FILE *data;
+	int buf;
+
+	/*If we have a input parameter, use that*/
+	if (argc > 1) {
+		data = fopen(argv[1], "r");
+	}
+
+	/*If we dont, use the standard input or pipelined input*/
+	else {
+        	data = stdin;
+	}
+
+
+	/*If data did not work properly*/
+	if (data == NULL) {
+		perror("Error: Error Opening File");
+		printf("%s", argv[1]);
+		fclose(data);
+		exit(1);
+	}
+	
+	while (1) {
+		buf = fgetc(data);
+		if ( feof(data)) {
+			break;
+		}
+		if (ispunct(buf)) {
+			continue;
+		}
+
+		if (!islower(buf)) {
+			printf("%c", tolower(buf));
+		}
+		else {
+			printf("%c", buf);
+		}
+	}
+
+
+	fclose(data);
+
+	return 0;
+}          

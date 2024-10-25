@@ -1,0 +1,6 @@
+for ((counter=0; counter<10; counter++))
+do
+	touch "silver${counter}.txt" Desktop/lab-01/silver/files
+	echo "${counter}"
+
+done

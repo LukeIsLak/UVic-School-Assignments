@@ -1,0 +1,6 @@
+actress 1
+blue 1
+colour 1
+famou 1
+french 1
+three 1

@@ -1,0 +1,44 @@
+import math
+
+class Point:
+
+    def __init__(self, x=0, y=0):
+        self.x = x
+        self.y = y
+
+    def __repr__(self):
+        return "Point(%r, %r)" % (self.x, self.y)
+
+    def delta_x(self, dx=0):
+        return Point(self.x+dx, self.y)
+    def delta_y(self, dy=0):
+        return Point(self.x, self.y+dy)
+    def translate (self, dx=0, dy=0):
+        return Point(self.x+dx, self.y+dy)
+
+
+class Circle:
+	def __init__(self, center, radius=0):
+		self.center = center
+		self.radius = radius
+	def __repr__(self):
+		return "Circle(%r, %r)" % (self.center, self.radius)
+	def area(self):
+		return math.pi * self.radius * self.radius
+	def perimeter(self):
+		return 2 * math.pi * self.radius
+	def translate (self, dx=0, dy=0):
+		return Circle(self.center.translate(dx, dy), self.radius)
+		
+class Rectangle:
+	def __init__(self, upr, lwl):
+		self.upper_right = upr
+		self.lower_left = lwl
+	def __repr__(self):
+		return "Rectangle(%r, %r)" % (self.upper_right, self.lower_left)
+	def area(self):
+		return (self.upper_right.x - self.lower_left.x) * (self.upper_right.y - self.lower_left.y)
+	def perimeter(self):
+		return ((self.upper_right.x - self.lower_left.x) * 2) + ((self.upper_right.y - self.lower_left.y) * 2)
+	def translate (self, dx=0, dy=0):
+		return Rectangle(Point(self.upper_right.x+dx, self.upper_right.y+dy), Point(self.lower_left.x+dx, self.lower_left.y+dy))

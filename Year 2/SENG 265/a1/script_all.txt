@@ -1,0 +1,17 @@
+file_source='crawling_file_inputs.txt' #create reference to input
+file_filter='crawling_file_filter.txt' #create variable of filter
+hier='Web_Crawler_Hierarchy'
+mkdir $hier
+
+
+	touch $file_filter 		#instantiate filter
+	chmod a+rwx $file_filter 	#give filter permissions
+
+	grep -v -e .jpg -e.gif -e .png -e .mp3 -e.mp4 $file_source > $file_filter
+
+cat $file_filter | while read -r line
+do	
+	directory_path=$(<echo | sed `s/https*\.\/\/*\///g`)
+	mkdir -p $hier$directory_path
+	
+done

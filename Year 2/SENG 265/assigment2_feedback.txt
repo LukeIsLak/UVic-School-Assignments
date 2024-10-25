@@ -1,0 +1,23 @@
+Assignment 2 Grading:
+---------------------
+Student lukekuligowicz
+Grade: 100
+
+Compile output: 
+
+All good
+
+
+Tests results
+
+Test 1: Passed
+Test 2: Passed
+Test 3: Passed
+Test 4: Passed
+
+Tests Feedback:
+4/4 Tests passed.
+
+Modularization:10/10
+
+Documentation:10/10

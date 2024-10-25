@@ -1,0 +1,80 @@
+#!/bin/bash
+
+echo "Script 4 Started"
+
+file_filter='crawling_file_filter.txt'
+hier='Web_Crawler_Hierarchy'
+extensions=(".php" ".py" ".perl")
+
+cat $file_filter | while read -r line
+do
+	is_dir=1
+	if [[ $line == *\/ ]]
+	then
+		echo 'Directory Found!'
+		is_dir=0
+		file_name='index'
+		ext='.html'
+
+	elif [[ $line == *.html* || $line == *.txt*  ]]
+	then
+		echo 'File Found!'
+		ext=''
+	else
+	for extension in $extensions
+	do
+		if [[ $line == *$extension* ]] 
+		then 
+			echo "Extension"
+			ext='.html'
+		fi
+	done
+	fi
+
+	OLDIFS="$IFS"
+	IFS='/'
+	
+	word_number=0
+	total=`echo $line | wc -w`
+	((total++))
+	for word in $line
+	do
+		((word_number++))
+		if [ $word_number -eq 3 ] 
+		then
+			directory_path=$hier"/"$word
+
+		elif [[ $word_number -gt 3 && ! $word == *.???* ]]
+		then
+			directory_path=$directory_path"/"$word
+
+		fi
+
+		if [[ $total -eq $word_number && is_dir -eq 1  ]] 
+		then
+			file_name=$word
+			break
+		fi
+
+
+
+	done
+
+	
+
+	IFS=$OLDIFS
+	new_file=$directory_path'/'$file_name$ext
+	echo "Directory is: $directory_path"
+	echo "New File is: $new_file"
+	echo "File Name is: $file_name$ext"
+	echo "Link is: $line"
+	touch $new_file
+	chmod a+rwx $new_file
+	curl $line -o $new_file
+	echo \
+
+done
+
+IFS=$OLDIFS
+
+echo 'Script 4 Done! Organized Files from a Web Crawler!'

@@ -1,0 +1,50 @@
+#!/bin/bash
+
+echo "Script2 Started"
+
+file_filter='crawling_file_filter.txt'
+
+hier='Web_Crawler_Hierarchy'
+mkdir $hier
+
+
+line_number=0
+
+cat $file_filter | while read -r line
+do
+	((line_number++))
+	echo "Line $line_number: $line" 
+	
+	OLDIFS="$IFS"
+	IFS='/'
+	
+	word_number=0
+	for word in $line
+	do
+		((word_number++))
+
+		if [[ $word_number -eq 3 && ! -e $hier"/"$word ]]
+		then
+			IFS=$OLDIFS
+			echo "Found a Web Server: $word"
+			directory_path=$hier"/"$word
+
+			
+			echo "Creating Web Server Directory: $directory_path"
+			mkdir $directory_path
+
+			IFS='/'
+
+		fi
+
+
+
+	done
+
+	IFS=$OLDIFS
+	echo \
+	
+done
+
+echo 'Script 2 done!'
+echo \

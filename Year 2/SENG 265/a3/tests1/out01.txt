@@ -1,0 +1,6 @@
+you were hired to work in a team that is building a new web search engine
+without much experience on the subject and counting only with a small team
+your team lead decided to take small steps
+another teammate is building the crawler which produces a file with web links
+on the other hand you will be responsible for checking such text files with web links
+downloading and organizing the files in a local unix filesystem

@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "Script 1 Started"
+
+file_source='crawling_file_inputs.txt' #create reference to input
+file_filter='crawling_file_filter.txt' #create variable of filter
+
+	touch $file_filter 		#instantiate filter
+	chmod a+rwx $file_filter 	#give filter permissions
+
+	grep -v -e .jpg -e.gif -e .png -e .mp3 -e.mp4 $file_source > $file_filter
+
+echo 'Script 1 done!'
+echo \
+
+
+#Run each script in order, script 1, script2, script3, script4
+#Use the ./scriptN.txt, where N is the script number you are trying to run
+#Inputs or Web Crawler must be in a file named 'crawling_file_inputs.txt' within the same directory
+
+

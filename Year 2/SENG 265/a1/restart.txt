@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [[ -e Web_Crawler_Hierarchy ]]
+then
+	rm -rf Web_Crawler_Hierarchy 
+fi
+
+if [[ -e crawling_file_filter.txt ]]
+then
+	rm crawling_file_filter.txt
+fi

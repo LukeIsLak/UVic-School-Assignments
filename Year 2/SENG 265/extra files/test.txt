@@ -1,0 +1,7 @@
+You were hired to work in a team that is building a new web search tool.
+Without much experience on the subject, and counting only with a small team, 
+your team lead decided to take small steps. 
+Another teammate is building the crawler, which produces a file with web links. 
+On the other hand, you will be responsible for checking such text files with web links, 
+downloading the files, and organizing them in a local Unix filesystem.
+

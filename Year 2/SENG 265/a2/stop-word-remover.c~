@@ -1,0 +1,52 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+
+#define MAX_BUF_LEN 100
+#define STOP_WORDS "the a an of for to and but yet"
+
+void tokenize_string(char *string, char *sep);
+int compare_token(char *token);
+
+int main(int argc, char* argv[]) {
+        FILE *data = fopen(argv[1], "r");
+	char buf[MAX_BUF_LEN];
+
+	if (data == NULL) {
+		perror("Error: Error Opening File");
+		fclose(data);
+		exit(1);
+	}
+
+	while (fgets(buf, MAX_BUF_LEN, data) != NULL ) {
+	  tokenize_string(buf, " ");
+	}
+
+	fclose(data);
+	return 0;
+}
+
+void tokenize_string (char *string, char *sep) {
+  char* t;
+  for (t = strtok(string, sep); t != NULL; t = strtok(NULL, sep)) {
+
+    printf("%s", t);
+
+  }
+  
+}
+
+int compare_token (char *token) {
+  char* swc;
+  char stw[] = STOP_WORDS;
+  swc = strtok(stw, " ");
+
+  while (swc != NULL) {
+    if (strcmp(swc, token) == 0) {
+      printf("0");
+      return 0;
+    }
+    swc = strtok(NULL, " ");
+  }
+  return 1;
+}

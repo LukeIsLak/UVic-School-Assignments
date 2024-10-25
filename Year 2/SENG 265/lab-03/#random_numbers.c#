@@ -1,0 +1,22 @@
+# include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
+
+#define MAX_VALUE 10;
+
+int return_rand(int max) {
+  return rand() % max + 1;
+}
+
+int main(int argc, char* argv[]) {
+
+  int max_num = MAX_VALUE;
+
+  // Calls the arguement as the max number
+  int new_num = atoi(argv[1]);
+	srand(time(NULL));
+	for (int i = 1; i <= new_num; i++) {
+		int n = rand() % max_num + 1;
+		printf("%d\n", n);	}
+	return rand() % max_num + 1;
+}

@@ -1,0 +1,13 @@
+0.2900 the_rolling_stones.txt
+0.2009 the_beatles.txt
+0.2006 wes_anderson.txt
+0.1068 inglorious_basterds.txt
+0.0932 juliette_binoche.txt
+0.0839 eternal_sunshine.txt
+0.0714 hey_jude.txt
+0.0608 pulp_fiction.txt
+0.0507 satisfaction.txt
+0.0414 quentin_tarantino.txt
+0.0392 three_colours_blue.txt
+0.0271 the_royal_tenenbaums.txt
+0.0159 kate_winslet.txt

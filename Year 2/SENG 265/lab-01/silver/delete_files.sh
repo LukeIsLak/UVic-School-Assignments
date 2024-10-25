@@ -1,0 +1,12 @@
+#!/bin/bash
+cd files
+for((counter=0; counter<10; counter++))
+do
+	if ((counter % 2 == 0));
+	then
+			echo "it EXISTS!"
+			rm "silver${counter}.txt"
+
+	fi
+done
+

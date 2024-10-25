@@ -1,0 +1,59 @@
+Assignment 5 grading:
+---------------------
+Student: lukekuligowicz
+Grade: 100/100
+    
+Test results:
+    
+Test Test 1a: Passed
+Test Test 1b: Passed
+Test Test 1c: Passed
+Test Test 2a: Passed
+Test Test 2b: Passed
+Test Test 2c: Passed
+
+Tests feedback(70/70):
+
+6/6 Tests passed
+
+Commiting practices(10/10):
+git log --pretty
+ea4e812	Luke Kuligowicz	Thu Oct 26 13:11:02 2023 -0700	Added code comments
+b70c220	Luke Kuligowicz	Thu Oct 26 13:00:29 2023 -0700	Cleaned up the code
+564b7ce	Luke Kuligowicz	Wed Oct 25 18:46:28 2023 -0700	Outputs to correct files, works with tests
+bb04105	Luke Kuligowicz	Wed Oct 25 18:09:31 2023 -0700	Matrixized all inputs, fill 0 when no entry
+92a5dbb	Luke Kuligowicz	Wed Oct 25 17:59:31 2023 -0700	reads each file and put it into a dictionary alongside each value
+8cd9f4a	Luke Kuligowicz	Wed Oct 25 17:42:33 2023 -0700	Added tdm-generator.py, prints lines from file given in stdin
+a3cb2b4	Luke Kuligowicz	Fri Oct 20 19:37:57 2023 -0700	Added cosmetic change #2 for version control
+196ac8c	Luke Kuligowicz	Fri Oct 20 19:34:44 2023 -0700	Added cosmetic change #1 for version control
+2bcf58a	Luke Kuligowicz	Fri Oct 20 18:59:20 2023 -0700	Attempting to fix term-frequency to be seen by git
+fa4c3f8	Jose Ossorio	Tue Oct 17 21:14:32 2023 -0700	Assigment 2 feedback
+1ce7a25	Luke Kuligowicz	Fri Oct 13 22:17:00 2023 -0700	Fixed text-cleaner
+95a5419	Luke Kuligowicz	Fri Oct 13 15:37:48 2023 -0700	Added stemmer.c from Assignment 3
+7e97d57	Luke Kuligowicz	Fri Oct 13 15:34:14 2023 -0700	Added part text-cleaner.c and stop-word-remover.c for Assignment 3
+b68ed37	Luke Kuligowicz	Wed Oct 11 16:30:07 2023 -0700	Added Lab 05
+270b110	Luke Kuligowicz	Fri Oct 6 12:47:29 2023 -0700	New Assignment 2
+4f42992	Luke Kuligowicz	Wed Oct 4 16:42:05 2023 -0700	Added Lab-04 to git
+0cd525c	Luke Kuligowicz	Tue Oct 3 14:50:35 2023 -0700	File added for assignment 2
+25b8d44	Luke Kuligowicz	Wed Sep 27 17:04:40 2023 -0700	finished lab3!
+83e449b	Luke Kuligowicz	Wed Sep 20 16:20:35 2023 -0700	added lab-01 to git
+b46e1bf	Luke Kuligowicz	Wed Sep 20 13:18:04 2023 -0700	commit_log has text in it now
+485ead1	Luke Kuligowicz	Wed Sep 20 13:14:07 2023 -0700	Adding the commit_log.txt
+6e11bf9	Lynn Palmer	Wed Sep 13 11:24:26 2023 -0700	initial
+        
+Modularization(10/10):
+
+Documentation(10/10):
+
+- Good formatting and structure of the code that facilitates reading
+  and understanding.
+
+- Good naming conventions for functions and variables.
+
+- Good attempt at documenting the code using comments to describe
+  important aspects of the solution.
+
+- Appropriate use of code segmentation (i.e. function creation and
+  use) that facilitates the usability and eventual maintainability of
+  your solution.
+

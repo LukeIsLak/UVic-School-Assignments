@@ -1,0 +1,6 @@
+you were hired work in team that is building new web search engine
+without much experience on subject counting only with small team
+your team lead decided take small steps
+another teammate is building crawler which produces file with web links
+on other hand you will be responsible checking such text files with web links
+downloading organizing files in local unix filesystem

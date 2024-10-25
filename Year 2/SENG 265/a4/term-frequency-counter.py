@@ -1,0 +1,38 @@
+#!/usr/bin/env python3
+
+import sys
+
+word_dict = {}	
+
+'''Function to take standard output and insert into a dictionary
+returns sorted list of strings'''
+def exp_stdin():
+		
+	for line in sys.stdin:
+		
+		'''properly format line; strips whitespace/endings/spaces; remaining word in a list'''
+		line_stp = line.strip()
+		line_tok = line_stp.split()
+		
+		'''add each word into dictionary with frequency 1, if it is inside increase frequency noted'''
+		for word in line_tok:
+			if word in word_dict:
+				word_dict[word] = word_dict.get(word) + 1
+			else:
+				word_dict[word] = 1
+	
+	'''return list of sorted keys'''
+	return (sorted(word_dict))
+
+'''Function to print dictionary with values, takes sorted list of strings'''
+def print_dict(sort_dict):
+	
+	'''for each sorted key, print it and the value'''
+	for key in sort_dict:
+		print(key + " " + str(word_dict[key]))
+
+'''call both functions'''
+print_dict(exp_stdin())
+
+'''Cosmetic Change #1 (For version control)'''
+'''Cosmetic Change #2 (For version control)'''

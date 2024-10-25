@@ -1,0 +1,46 @@
+#!/bin/bash
+
+echo "Script 3 Started"
+
+file_filter='crawling_file_filter.txt'
+
+hier='Web_Crawler_Hierarchy'
+
+line_number=0
+
+cat $file_filter | while read -r line
+do
+	((line_number++))
+	echo "Line $line_number: $line"
+	
+	OLDIFS="$IFS"
+	IFS='/'
+	
+	word_number=0
+	for word in $line
+	do
+		((word_number++))
+
+		if [[ $word_number -eq 3 ]] 
+		then
+			directory_path=$hier"/"$word
+
+		elif [[ $word_number -gt 3 && ! $word == *.???* ]]
+		then
+			directory_path=$directory_path"/"$word
+
+		fi
+
+
+	done
+
+	IFS=$OLDIFS	
+	mkdir -p $directory_path
+	echo \
+
+
+	
+done
+
+echo 'Script 3 done!'
+echo \
