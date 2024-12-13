@@ -1,0 +1,57 @@
+jovyan@jupyter-lukekuligowicz:~/CSC 361/Assignment 3$ python3 P3_Fall2024.py win_trace1.pcap
+
+
+--- Analysiz of win_trace1.pcap ---
+
+
+Row   Components                                                   Details
+==========================================================================================
+1     The IP address of the source node (R1)                       192.168.0.17
+------------------------------------------------------------------------------------------
+2     The IP address of ultimate destination node (R1)             8.8.8.8
+------------------------------------------------------------------------------------------
+3     The IP addresses of the intermediate destination nodes (R1)  142.104.69.243, 142.104.68.1, 192.168.9.5, 192.168.10.1, 192.168.8.6, 142.104.252.37, 142.104.252.246, 207.23.244.242, 206.12.3.17, 199.212.24.64, 206.81.80.17, 74.125.37.91, 209.85.250.59
+------------------------------------------------------------------------------------------
+4     The correct order of the intermediate destination nodes (R1) 142.104.69.243, 142.104.68.1, 192.168.9.5, 192.168.10.1, 192.168.8.6, 142.104.252.37, 142.104.252.246, 207.23.244.242, 206.12.3.17, 199.212.24.64, 206.81.80.17, 74.125.37.91, 209.85.250.59
+------------------------------------------------------------------------------------------
+5     The values in the protocol field of IP headers (R1)          1: ICMP
+------------------------------------------------------------------------------------------
+6     The number of fragments created from the original datagram (R1) 0
+------------------------------------------------------------------------------------------
+7     The offset of the last fragment (R1)                         0
+------------------------------------------------------------------------------------------
+8     The avg RTT to ultimate destination node (R1)                7.344 ms
+8     The avg RTT from 192.168.0.17 to 142.104.69.243 (R1)         1.07867 ms
+8     The avg RTT from 192.168.0.17 to 142.104.68.1 (R1)           1.48767 ms
+8     The avg RTT from 192.168.0.17 to 192.168.9.5 (R1)            1.39633 ms
+8     The avg RTT from 192.168.0.17 to 192.168.10.1 (R1)           1.43333 ms
+8     The avg RTT from 192.168.0.17 to 192.168.8.6 (R1)            1.68567 ms
+8     The avg RTT from 192.168.0.17 to 142.104.252.37 (R1)         1.61 ms
+8     The avg RTT from 192.168.0.17 to 142.104.252.246 (R1)        1.97233 ms
+8     The avg RTT from 192.168.0.17 to 207.23.244.242 (R1)         2.05067 ms
+8     The avg RTT from 192.168.0.17 to 206.12.3.17 (R1)            5.216 ms
+8     The avg RTT from 192.168.0.17 to 199.212.24.64 (R1)          3.837 ms
+8     The avg RTT from 192.168.0.17 to 206.81.80.17 (R1)           7.33333 ms
+8     The avg RTT from 192.168.0.17 to 74.125.37.91 (R1)           7.60467 ms
+8     The avg RTT from 192.168.0.17 to 209.85.250.59 (R1)          7.54033 ms
+------------------------------------------------------------------------------------------
+9     The std deviation of RTT to ultimate destination node (R1)             0.055881 ms
+9     The std deviation of RTT from 192.168.0.17 to 142.104.69.243 (R1)      0.053269 ms
+9     The std deviation of RTT from 192.168.0.17 to 142.104.68.1 (R1)        0.111691 ms
+9     The std deviation of RTT from 192.168.0.17 to 192.168.9.5 (R1)         0.089235 ms
+9     The std deviation of RTT from 192.168.0.17 to 192.168.10.1 (R1)        0.053024 ms
+9     The std deviation of RTT from 192.168.0.17 to 192.168.8.6 (R1)         0.101543 ms
+9     The std deviation of RTT from 192.168.0.17 to 142.104.252.37 (R1)      0.129941 ms
+9     The std deviation of RTT from 192.168.0.17 to 142.104.252.246 (R1)     0.118565 ms
+9     The std deviation of RTT from 192.168.0.17 to 207.23.244.242 (R1)      0.089407 ms
+9     The std deviation of RTT from 192.168.0.17 to 206.12.3.17 (R1)         2.00452 ms
+9     The std deviation of RTT from 192.168.0.17 to 199.212.24.64 (R1)       0.057102 ms
+9     The std deviation of RTT from 192.168.0.17 to 206.81.80.17 (R1)        0.099587 ms
+9     The std deviation of RTT from 192.168.0.17 to 74.125.37.91 (R1)        0.135534 ms
+9     The std deviation of RTT from 192.168.0.17 to 209.85.250.59 (R1)       0.118227 ms
+------------------------------------------------------------------------------------------
+10    The number of probes per TTL (R2)                            TTL 1: 3, TTL 2: 3, TTL 3: 3, TTL 4: 3, TTL 5: 3, TTL 6: 3, TTL 7: 3, TTL 8: 3, TTL 9: 3, TTL 10: 3, TTL 11: 3, TTL 12: 3, TTL 13: 3, TTL 14: 3, TTL 29: 3, TTL 52: 3, TTL 53: 4, TTL 62: 3, TTL 64: 2, TTL 128: 2, TTL 242: 3, TTL 245: 3, TTL 246: 3, TTL 247: 6, TTL 249: 3, TTL 250: 3, TTL 251: 3, TTL 252: 3, TTL 254: 3
+------------------------------------------------------------------------------------------
+11    Right answer to the second question - Group 1 (R2)           No
+11    Right answer to the second question - Group 2 (R2)           Yes
+------------------------------------------------------------------------------------------

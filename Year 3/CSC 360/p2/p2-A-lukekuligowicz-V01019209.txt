@@ -1,0 +1,129 @@
+--- QUESTION 1 --------- How many threads are you going to use? Specify the work that you intend each thread to perform.
+
+I believe I am going to use a dynamic number of threads: I would like to dedicate a thread to each train
+that is detected from the input. Furthermore, there will be an additional thread that acts as main process: managing
+the station (i.e. just the main process). So the number of threads depends on the input size.
+
+--- QUESTION 2 --------- Do the threads work independently? Or, is there an overall “controller” thread?
+
+To a degree, each thread will be somewhat independent. However, there is going to be a general "controller" thread. While 
+each "train" thread will be independently handling its own data, there still needs a "controller" thread to handle the
+general operations.
+
+
+    "controller" thread: The thread that will act as the main process, from handling the passing of trains,
+    controlling when all trains start, parsing the input, etc..
+        In short, I want the controller thread to 
+            - handle signals to start and cross trains
+            - check/handle which trains to cross
+            - parse the input
+            - handle when all trains are finished
+
+    "train" thread(s): The thread(s) that handles the sorting of trains. To determining how long it takes to
+    wait, to telling which direction it is going, to handling which queue it goes into.
+        In short, I want the train threads to
+            - handle the specific input (direction, wait time, etc.)
+            - terminate upon crossing
+
+--- QUESTION 3 --------- How many mutexes are you going to use? Specify the operation that each mutex will guard.
+
+There are going to be multiple mutexes:
+    1/2) Guarding the queues
+        I need a mutex for each queue to ensure that the threads don't read and write at the same time.
+        Additionally, I need to ensure that the "controller" thread does not try to access the queue while
+        other "train" threads are adding to queues.
+
+        Additionally, while the "controller" thread is waiting on signals, there are cases where additional "train" 
+        threads should be able to access the queues and not the "controller" thread.
+
+        Because I am using two priority queues, I will need two mutexes, one for each queue alongside its operations. 
+        We'll call these:
+
+            East-to-West Mutex: For corresponding queue
+            West-to-East Mutex: For corresponding queue
+
+        For this design document
+
+
+    3) Guarding shared values
+        I want to ensure that each "train" thread don't access the same overall data that each will need.
+        For example, a total count variable for the total amount of trains.
+
+        We'll call this:
+
+            Data Mutex:  Variables for if the station is open, how many trains there are, ready to start, etc..
+        
+        For this design document
+
+
+--- QUESTION 4 --------- Will the main thread be idle? If not, what will it be doing?
+
+The main thread, a.k.a. the "controller" thread, is not going to be always "idle". The controller thread will be
+managing the trains and constantly checking the queues to check whether or not a train is ready to leave.
+
+As mentioned above, the "controller" thread that will act as the main process, from handling the passing of trains,
+    controlling when all trains start, parsing the input, etc..
+        In short, I want the controller thread to 
+            - handle signals to start and cross trains
+            - check/handle which trains to cross based on the specifications outlined
+            - check if trains ready to cross and finished crossing
+            - parse the input
+            - handle when all trains are finished
+
+
+--- QUESTION 5 --------- How are you going to represent stations (which are collections of loaded trains ready to depart)? That is, what type of data structure will you use?
+
+I am thinking about using a priority queue implementation. That is, I would like to seperate the queues into
+the direction that they are heading.
+
+The reason I want to implement a priority queue is to handle the High Priority and Low Priority trains.
+
+
+--- QUESTION 6 --------- How are you going to ensure that data structures in your program will not be modified concurrently?
+
+I plan to use mutexes to lock each of the queues so that the threads aren't overwriting one another.
+
+--- QUESTION 7 --------- How many convars are you going to use? For each convar:
+    1) Describe the condition that the convar will represent.
+    2) Which mutex is associated with the convar? Why?
+    3) What operation should be performed once pthread_cond_wait() has been unblocked and re-acquired the mutex?
+
+    Convar 1: East to West Queue
+        Assosiated Mutex: East-to-West Mutex, the convar to maintain the mutex to prevent modification concurrently
+        Operation after unblocked: The thread will either add itself to the priority queue or remove the highest priority
+        item from the queue. After that, it should release the mutex.
+    Convar 2: West to East Queue
+        Assosiated Mutex: West-to-East Mutex, the convar to maintain the mutex to prevent modification concurrently
+        Operation after unblocked: The thread will either add itself to the priority queue or remove the highest priority
+        item from the queue. After that, it should release the mutex.
+    Convar 3: Start Signal
+        Assosiated Mutex: Data Mutex, contains the variable and count to start/add all trains at the same time
+        Operation after unblocked: once a thread is unblocked, they will increment a total trains counter, and then release the mutex.
+    Convar 4: Cross Signal
+        Assosiated Mutex: Data Mutex, contains a variable if the station is open
+        Operation after unblocked: once a thread is unblocked ("train" threads), can check the mutex if a track is open, if it is,
+        close the track and release the mutex. Mostly just to signal threads.
+    Convar 5: Crossed Signal:
+        Assosiated Mutex: Data Mutex, holds data that will be updated after a thread has recieved the crossed signal
+        Operation after unblocked: once a thread is unblocked ("controller" thread), it will need to access the data
+        mutex to update the current number of total trains left and to open the track.
+
+
+
+“The number of convars may not be enough. Each train might need a local convar. You need to make sure that the specific train thread will be signaled to start crossing.”
+
+--- QUESTION 8 ---------
+
+In 15 lines or less, briefly sketch the overall algorithm you will use.
+
+Get data Mutex, Get Tokenize input by line, create a train thread for each line with corresponding values, set start variable, release data mutex, broadcast start variable
+    Each train thread (when created) should (each train has the direciton, load time, cross time):
+        wait for start signal and get data mutex, update data (count), release data mutex be in a loading state, process the load time by sleeping for that time
+        if train is loaded, get direction mutex, add train to priority queue, release direction mutex, wait for cross signal
+        when recieved cross signal, process crossing time by sleeping for that time, get data mutex, decrease total trains, release data mutex, send crossed signal
+        terminate the thread, clean up any data
+Concurrently, the "controller" thread should loop while all trains have not crossed
+    If queues are not empty, handle logic train crosses the station next, determine which station to grab from next, get data, mutex open the station, release data mutex
+    Get direction mutex, remove train, release direction mutex, signal that train with a cross, wait for crossed signal
+    If crossed signal recieved, open the station, repeat loop
+Terminate the program if all trains have crossed, clean up any data structures       

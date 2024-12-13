@@ -1,0 +1,16 @@
+Have indicated where changes are in comments as well 
+
+Problem 1: Slight different in naming "EAST" and "WEST" in ouput
+Result 1: Would cause error with the grader despite being spelt the same 
+Change 1: changes made in train.h and pqueue.h to now output "East" and "West" instead of "EAST" and "WEST"
+New Output 1: Changes in the output to now say "East" and "West"
+
+Problem 2: Incorrectly counting number of trains ONLY if the input file ends in an empty line outside specs of assignment
+Result 2: Would assume there is an additional train, test case 4 runs forever because of this lost marks for that and for not finishing in 60 seconds
+Change 2: Changed file.h to now account for this edge case
+New Output 2: Does not loop infinetly on edge case
+Mismatch 1: Test case 3 is different than current outputs, despite no change in logic
+
+Problem 3: Test Case 3 delayed start
+There is no change to this, running the same code results in the expected output, I believe there is an error on this part
+I have not been able to recreate the output that was received with the same code.
